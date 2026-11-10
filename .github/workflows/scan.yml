@@ -15,5 +15,5 @@ jobs:
         run: python3 scanner.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          CAPITAL: "1000"    # ton capital en dollars
+          CAPITAL: "216"    # ton capital en dollars
           RISK_PCT: "1"      # % du capital risqué par trade
