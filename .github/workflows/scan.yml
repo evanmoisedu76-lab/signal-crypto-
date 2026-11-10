@@ -1,0 +1,19 @@
+name: Scanner Hyperliquid
+
+on:
+  schedule:
+    - cron: "5 * * * *"   # chaque heure, à xx:05
+  workflow_dispatch:       # permet aussi de le lancer à la main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lancer le scanner
+        run: python3 scanner.py
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          CAPITAL: "1000"    # ton capital en dollars
+          RISK_PCT: "1"      # % du capital risqué par trade
